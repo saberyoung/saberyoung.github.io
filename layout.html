@@ -6,17 +6,13 @@
 <script src="static/js/fits.js"></script>
 <script src="static/js/fitsviewer.js"></script>
 <script type="text/javascript">
-<?php error_reporting(E_ALL ^ E_WARNING);
-      require_once "log.php";
-      clientlog();?>
-
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript">
   var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
 <html>
   <head>
- <title>GWpadova</title>
+ <title>Sheng Yang</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -32,25 +28,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="home.php"><class="logo">GRAWITA Padova</a>
+      <a class="navbar-brand" href="home.html"><class="logo">Welcome to Sheng Yang's personal webpage</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="home.php">Home</a></li>
-	<li><a href="results.php">Results</a></li>
-        <li><a href="instructions.php">Instructions</a></li>
+        <li class="active"><a href="home.html">Home</a></li>
+	<li><a href="results.html">Results</a></li>
+        <li><a href="instructions.html">Instructions</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Identification<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="images.php">Mode1</a></li>
-            <li><a href="matrix.php">Mode2</a></li>
-            <li><a href="candidates.php">Mode3</a></li>
+            <li><a href="images.html">Mode1</a></li>
+            <li><a href="matrix.html">Mode2</a></li>
+            <li><a href="candidates.html">Mode3</a></li>
           </ul>
         </li>       
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.php"><span class="glyphicon glyphicon-user"></span> Login</a></li>
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="index.html"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+        <li><a href="logout.html"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </div>
