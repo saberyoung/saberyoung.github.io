@@ -36,5 +36,5 @@ if __name__ == "__main__":
     indexfilenew.close()
 
     os.system('git add .')
-    os.system('git commit -m "update"')
+    os.system('git commit -m "%s"'%args.trigger)
     os.system('git push')
