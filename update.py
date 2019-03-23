@@ -4,18 +4,21 @@ import glob,argparse,time,sys,os
 
 addstr = '<tr align="center"><td>%s</td><td>%s</td><td>%s</td><td>%s<br></td>\n'
 addstr1 = '<a href="./%s">%s</a>'
-indexfile1,indexfile2 = '',''
-for nii,ii in enumerate(open('index.html').readlines()):
-    if nii <= 13:indexfile1+=ii
-    else:indexfile2+=ii
 
 if __name__ == "__main__":
     start_time = time.time()
     parser = argparse.ArgumentParser(description='update web',\
-                formatter_class=argparse.ArgumentDefaultsHelpFormatter)   
+                formatter_class=argparse.ArgumentDefaultsHelpFormatter)       
     parser.add_argument("trigger",help='trigger name')
     parser.add_argument("info",help='trigger informations')    
+    parser.add_argument("-d",dest="dir",default='.',help='dir name')
     args = parser.parse_args()
+
+    indexfile1,indexfile2 = '',''
+    _indexfull = args.dir+'/index.html'
+    for nii,ii in enumerate(open(_indexfull).readlines()):
+        if nii <= 13:indexfile1+=ii
+        else:indexfile2+=ii
 
     _filelist,_imglist = [],[]
     for _ff in glob.glob('*'+args.trigger+'*'):
@@ -23,7 +26,7 @@ if __name__ == "__main__":
         elif '.png'in _ff:_imglist.append(_ff)
     if len(_filelist)>0 or len(_imglist)>0:
         os.remove('index.html')
-        indexfilenew = open('index.html','w')
+        indexfilenew = open(_indexfull,'w')
         _fileout,_imgout = '',''
         for nn,_list in zip([0,1],[_filelist,_imglist]):
             for _nll,_ll in enumerate(_list):
