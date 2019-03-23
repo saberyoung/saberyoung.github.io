@@ -30,8 +30,8 @@ if __name__ == "__main__":
         _fileout,_imgout = '',''
         for nn,_list in zip([0,1],[_filelist,_imglist]):
             for _nll,_ll in enumerate(_list):
-                if nn == 0:_fileout+=addstr1%(_ll,_ll)
-                if nn == 1:_imgout+=addstr1%(_ll,_ll)
+                if nn == 0:_fileout+=addstr1%(os.path.basename(_ll),os.path.basename(_ll))
+                if nn == 1:_imgout+=addstr1%(os.path.basename(_ll),os.path.basename(_ll))
                 if _nll<len(_list)-1:                
                     _fileout+='<br>'
                     _imgout+='<br>'    
