@@ -2,7 +2,7 @@ from __future__ import print_function
 from builtins import input
 import glob,argparse,time,sys,os
 
-addstr = '<tr align="center"><td>%s</td><td>%s</td><td>%s<br></td>\n'
+addstr = '<tr align="center"><td>%s</td><td>%s</td><td>%s</td><td>%s<br></td>\n'
 addstr1 = '<a href="./%s">%s</a>'
 indexfile1,indexfile2 = '',''
 for nii,ii in enumerate(open('index.html').readlines()):
@@ -12,8 +12,9 @@ for nii,ii in enumerate(open('index.html').readlines()):
 if __name__ == "__main__":
     start_time = time.time()
     parser = argparse.ArgumentParser(description='update web',\
-                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter)   
-    parser.add_argument("trigger",help='trigger name')    
+                formatter_class=argparse.ArgumentDefaultsHelpFormatter)   
+    parser.add_argument("trigger",help='trigger name')
+    parser.add_argument("info",help='trigger informations')    
     args = parser.parse_args()
 
     _filelist,_imglist = [],[]
@@ -31,8 +32,8 @@ if __name__ == "__main__":
                 if _nll<len(_list)-1:                
                     _fileout+='<br>'
                     _imgout+='<br>'    
-        indexfile12 = addstr%(args.trigger,_fileout,_imgout)
-        indexfilenew.write(indexfile1+indexfile12+indexfile2)
+        indexfile12 = addstr%(args.trigger,args.info,_fileout,_imgout)
+        indexfilenew.write('\t'+indexfile1+indexfile12+indexfile2)
         indexfilenew.close()
 
         os.system('git add .')
