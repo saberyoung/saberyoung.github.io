@@ -21,7 +21,7 @@ if __name__ == "__main__":
         else:indexfile2+=ii
 
     _filelist,_imglist = [],[]
-    for _ff in glob.glob('*'+args.trigger+'*'):
+    for _ff in glob.glob(args.dir+'/*'+args.trigger+'*'):
         if '.txt' in _ff:_filelist.append(_ff)
         elif '.png'in _ff:_imglist.append(_ff)
     if len(_filelist)>0 or len(_imglist)>0:
