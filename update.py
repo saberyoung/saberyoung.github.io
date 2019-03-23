@@ -25,7 +25,7 @@ if __name__ == "__main__":
         if '.txt' in _ff:_filelist.append(_ff)
         elif '.png'in _ff:_imglist.append(_ff)
     if len(_filelist)>0 or len(_imglist)>0:
-        os.remove('index.html')
+        os.remove(_indexfull)
         indexfilenew = open(_indexfull,'w')
         _fileout,_imgout = '',''
         for nn,_list in zip([0,1],[_filelist,_imglist]):
@@ -39,6 +39,6 @@ if __name__ == "__main__":
         indexfilenew.write('\t'+indexfile1+indexfile12+indexfile2)
         indexfilenew.close()
 
-        os.system('git add .')
-        os.system('git commit -m "%s"'%args.trigger)
-        os.system('git push')
+        os.system('git -C %s add .'%args.dir)
+        os.system('git -C %s commit -m "%s"'%(args.dir,args.trigger))
+        os.system('git -C %s push'%args.dir)
